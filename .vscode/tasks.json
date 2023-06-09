@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "clang single-file compilation.", //label：需要与launch.json中的preLaunchTask保持一致，否则调试时会提示找不到；
+      "command": "clang++", //编译器所在的位置
+      //编译参数，如果你在命令行用过gcc编译器应该知道这些选项和值都是啥。clang++命令的选项与gcc的类似
+      "args": [
+        "-g",
+        "${file}", //这里是单文件编译的 如果要变成多文件编译的话要改下  改成${fileDirname}\\*.cpp
+        "-o",
+        "${fileDirname}\\build\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "调试器生成的任务。"
+    },
+    {
+      "type": "cppbuild",
+      "label": "clang multi-file compilation.", //label：需要与launch.json中的preLaunchTask保持一致，否则调试时会提示找不到；
+      "command": "clang++", //编译器所在的位置
+      //编译参数，如果你在命令行用过gcc编译器应该知道这些选项和值都是啥。clang++命令的选项与gcc的类似
+      "args": [
+        "-g",
+        // "${file}", //这里是单文件编译的 如果要变成多文件编译的话要改下  改成${fileDirname}\\*.cpp
+        "${fileDirname}\\*.cc",
+        "-o",
+        "${fileDirname}\\build\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "调试器生成的任务。"
+    },
+    {
+      "label": "ninja",
+      "type": "shell",
+      "command": "ninja",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      },
+      "dependsOn": [
+        "cmake compilation"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake compilation",
+      "type": "shell",
+      "command": "cmake -B build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "version": "2.0.0"
+}

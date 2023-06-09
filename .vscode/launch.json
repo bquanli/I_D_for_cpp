@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "single-file",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "clang single-file compilation."
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "multi-file",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "clang multi-file compilation."
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "program": "",
+      "name": "camke compilation",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "cmake compilation"
+    },
+    {
+      "type": "lldb",
+      "name": "ninja",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "ninja"
+    }
+  ]
+}
