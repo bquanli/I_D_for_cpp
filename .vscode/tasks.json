@@ -31,9 +31,9 @@
       "args": [
         "-g",
         // "${file}", //这里是单文件编译的 如果要变成多文件编译的话要改下  改成${fileDirname}\\*.cpp
+        "${fileDirname}/*.cc",
         "-I",
         "${fileDirname}/include",
-        "${fileDirname}/*.cc",
         "-o",
         "${workspaceFolder}/build/${fileBasenameNoExtension}.exe"
       ],
