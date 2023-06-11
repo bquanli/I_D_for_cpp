@@ -5,7 +5,7 @@
       "type": "lldb",
       "request": "launch",
       "name": "single-file",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/build/default/${fileBasenameNoExtension}.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "clang single-file compilation."
@@ -14,7 +14,7 @@
       "type": "lldb",
       "request": "launch",
       "name": "multi-file",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/build/default/${fileBasenameNoExtension}.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "clang multi-file compilation."
@@ -23,17 +23,18 @@
       "type": "lldb",
       "request": "launch",
       "program": "",
-      "name": "camke compilation",
+      "name": "cmake clang++",
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "cmake compilation"
     },
     {
       "type": "lldb",
-      "name": "ninja",
       "request": "launch",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "name": "lldb-debug",
+      "program": "${workspaceFolder}/build/debug/${fileBasenameNoExtension}.exe",
+      "args": [],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "ninja"
+      "preLaunchTask": "cmake debug"
     }
   ]
 }

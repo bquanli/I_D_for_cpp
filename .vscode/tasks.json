@@ -48,31 +48,52 @@
       "detail": "调试器生成的任务。"
     },
     {
-      "label": "ninja",
+      "label": "cmake compilation",
+      "type": "shell",
+      "command": "cmake --preset default",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "cmake",
       "type": "shell",
       "command": "ninja",
       "args": [],
       "options": {
-        "cwd": "${workspaceFolder}/build"
+        "cwd": "${workspaceFolder}/build/debug"
       },
       "group": "build",
       "presentation": {
         "reveal": "always"
       },
-      "dependsOn": [
-        "cmake compilation"
-      ],
+      // "dependsOn": [
+      //   "cmake compilation"
+      // ],
       "problemMatcher": []
     },
     {
-      "label": "cmake compilation",
+      "label": "cmake debug",
       "type": "shell",
-      "command": "cmake -B build",
+      "command": "ninja",
+      "options": {
+        "cwd": "${workspaceFolder}/build/debug"
+      },
       "group": {
         "kind": "build",
         "isDefault": true
       }
-    }
+    },
+    {
+      "label": "cmake debug compilation",
+      "type": "shell",
+      "command": "cmake --preset debug",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
   ],
   "version": "2.0.0"
 }
