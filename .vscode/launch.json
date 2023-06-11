@@ -5,7 +5,7 @@
       "type": "lldb",
       "request": "launch",
       "name": "single-file",
-      "program": "${workspaceFolder}/build/default/${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "clang single-file compilation."
@@ -14,7 +14,7 @@
       "type": "lldb",
       "request": "launch",
       "name": "multi-file",
-      "program": "${workspaceFolder}/build/default/${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "clang multi-file compilation."
