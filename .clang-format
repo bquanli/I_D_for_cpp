@@ -13,7 +13,7 @@ Language:        Cpp
 # - None: 不使用, 即自动配置, 也就是本文件中的自定义内容
 # BasedOnStyle:  LLVM
 
-#访问声明符缩进
+#设置类的访问声明符缩进
 AccessModifierOffset: -2
 # 开括号后的对齐(包括小括号/大括号/尖括号), 建议使用Align
 # - Align: 对于开括号, 即在换行情况下, 换行的参数跟开括号对齐, 建议使用
@@ -44,7 +44,7 @@ AlignConsecutiveAssignments:
 # 同AlignConsecutiveAssignments, 表示连续位定义语句出现时, 是否需要对齐:符号, 位变量定义用得少, 可以不开启
 AlignConsecutiveBitFields:
   # 是否启用, 建议不启用
-  Enabled:         true
+  Enabled:         false
   # 同AlignConsecutiveAssignments
   AcrossEmptyLines: false
   # 同AlignConsecutiveAssignments
@@ -56,9 +56,9 @@ AlignConsecutiveBitFields:
 
 # 是否对齐连续声明, 同AlignConsecutiveDeclarations
 AlignConsecutiveDeclarations:
-  Enabled:         true
+  Enabled:         false
   AcrossEmptyLines: false
-  AcrossComments:  true
+  AcrossComments:  false
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveMacros:
@@ -85,9 +85,9 @@ AllowAllArgumentsOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortEnumsOnASingleLine: true
 AllowShortBlocksOnASingleLine: Never
-AllowShortCaseLabelsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
 # 允许短的函数放在同一行, 可选值: None, InlineOnly(定义在类中), Empty(空函数), Inline(定义在类中，空函数), All
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: Inline
 # 允许lambda在一行中, 同上, 建议All
 AllowShortLambdasOnASingleLine: All
 # 是否将简单的if(else/else if)语句中的body跟if(else/else if)放置于同一行，可选值
@@ -136,16 +136,16 @@ BraceWrapping:
   AfterStruct:     true
   AfterUnion:      true
   AfterExternBlock: true
-  BeforeCatch:     true
+  BeforeCatch:     false
   BeforeElse:      true
-  BeforeLambdaBody: true
-  BeforeWhile:     true
-  IndentBraces:    true
+  BeforeLambdaBody: false
+  BeforeWhile:     false
+  IndentBraces:    false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
 # 二元操作符前是否换行, 建议为None
-BreakBeforeBinaryOperators: true
+BreakBeforeBinaryOperators: None
 # 概念声明前是否换行, 建议Always
 BreakBeforeConceptDeclarations: Always
 # 大括号换行风格,Custom即可, 具体值可参考上方文档
@@ -198,7 +198,7 @@ ExperimentalAutoDetectBinPacking: false
 # - CurrentLine: 所有参数放置于一行, 如果放不下, 就一个参数一行
 # - NextLine: 同CurrentLine有点像, 唯一不同就是如果放不行, 将剩余参数放置于下一行(即不自动一参一行)
 PackConstructorInitializers: Never
-BasedOnStyle: LLVM
+BasedOnStyle:    ''
 # 废弃配置
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 # 废弃配置
@@ -276,7 +276,7 @@ LambdaBodyIndentation: Signature
 # 宏开始的正则, 不使用
 MacroBlockBegin: ''
 # 宏结束的正则, 不使用
-MacroBlockEnd: ''
+MacroBlockEnd:   ''
 # 空行保持, 建议为1
 MaxEmptyLinesToKeep: 3
 # Namespace内的对齐, 直接使用None即可, 即所有namespace内(包括内嵌的)都不indent
@@ -355,8 +355,8 @@ SpaceBeforeParensOptions:
 SpaceAroundPointerQualifiers: Default
 # Loop关键字前前是否增加space, 建议true
 SpaceBeforeRangeBasedForLoopColon: true
-# 空body是否添加space, 建议true
-SpaceInEmptyBlock: true
+# 空body是否添加space, 建议true 空的大括号之间是否要空格
+SpaceInEmptyBlock: false
 # 圆括号前是否增加space, 建议false, true太多影响代码紧凑
 SpaceInEmptyParentheses: false
 # Trailing注释前的空格数, 建议1
@@ -393,11 +393,14 @@ StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
 # Tab宽度, 建议4
-TabWidth:        4
+TabWidth:        2
 # 不使用CRLF, 强制关闭, 如果DeriveLineEnding为true却未自动决策出来, 此项用于fallback策略
 UseCRLF:         false
 # Tab使用, 没有必要使用, 直接Never
 UseTab:          Never
+
+
+
 # 空格敏感宏列表
 WhitespaceSensitiveMacros:
   - STRINGIZE
