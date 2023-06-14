@@ -44,7 +44,7 @@ AlignConsecutiveAssignments:
 # 同AlignConsecutiveAssignments, 表示连续位定义语句出现时, 是否需要对齐:符号, 位变量定义用得少, 可以不开启
 AlignConsecutiveBitFields:
   # 是否启用, 建议不启用
-  Enabled:         false
+  Enabled:         true
   # 同AlignConsecutiveAssignments
   AcrossEmptyLines: false
   # 同AlignConsecutiveAssignments
@@ -56,9 +56,9 @@ AlignConsecutiveBitFields:
 
 # 是否对齐连续声明, 同AlignConsecutiveDeclarations
 AlignConsecutiveDeclarations:
-  Enabled:         false
+  Enabled:         true
   AcrossEmptyLines: false
-  AcrossComments:  false
+  AcrossComments:  true
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveMacros:
@@ -136,12 +136,14 @@ BraceWrapping:
   AfterStruct:     true
   AfterUnion:      true
   AfterExternBlock: true
-  BeforeCatch:     false
+  BeforeCatch:     true
   BeforeElse:      true
-  BeforeLambdaBody: false
-  BeforeWhile:     false
+  BeforeLambdaBody: true
+  BeforeWhile:     true
+  # 缩进大括号
   IndentBraces:    false
-  SplitEmptyFunction: true
+  # 空函数的大括号换行
+  SplitEmptyFunction: false
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
 # 二元操作符前是否换行, 建议为None
@@ -198,7 +200,7 @@ ExperimentalAutoDetectBinPacking: false
 # - CurrentLine: 所有参数放置于一行, 如果放不下, 就一个参数一行
 # - NextLine: 同CurrentLine有点像, 唯一不同就是如果放不行, 将剩余参数放置于下一行(即不自动一参一行)
 PackConstructorInitializers: Never
-BasedOnStyle:    ''
+BasedOnStyle: LLVM
 # 废弃配置
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 # 废弃配置
@@ -244,7 +246,7 @@ IncludeIsMainSourceRegex: ''
 # 缩进访问控制
 IndentAccessModifiers: false
 # 缩进case语句, 建议false
-IndentCaseLabels: false
+IndentCaseLabels: true
 # 缩进case body, 建议true
 IndentCaseBlocks: true
 # 缩进goto标签
@@ -276,7 +278,7 @@ LambdaBodyIndentation: Signature
 # 宏开始的正则, 不使用
 MacroBlockBegin: ''
 # 宏结束的正则, 不使用
-MacroBlockEnd:   ''
+MacroBlockEnd: ''
 # 空行保持, 建议为1
 MaxEmptyLinesToKeep: 3
 # Namespace内的对齐, 直接使用None即可, 即所有namespace内(包括内嵌的)都不indent
@@ -338,8 +340,8 @@ SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: false
 # 继承列表的:前是否加space(true/false), 建议true
 SpaceBeforeInheritanceColon: true
-# 圆括号前是否增加空格: 建议只在控制语句的贺括号前增加, 即配置为ControlStatements即可
-SpaceBeforeParens: ControlStatements
+# if语句后面的小括号是否加空格 圆括号前是否增加空格: 建议只在控制语句的贺括号前增加, 即配置为ControlStatements即可
+SpaceBeforeParens: false
 # SpaceBeforeParens为Custom时使用
 SpaceBeforeParensOptions:
   AfterControlStatements: true
@@ -398,9 +400,6 @@ TabWidth:        2
 UseCRLF:         false
 # Tab使用, 没有必要使用, 直接Never
 UseTab:          Never
-
-
-
 # 空格敏感宏列表
 WhitespaceSensitiveMacros:
   - STRINGIZE
